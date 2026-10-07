@@ -5,6 +5,6 @@ const external = (u: string) => /^https?:/.test(u);
 ---
 <div class="bracket-links">
   {Object.entries(links).filter(([, u]) => u).map(([label, u]) => (
-    <a class="link" href={u} {...(external(u) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>[ {label} ]</a>
+    <a href={u} {...(external(u) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{label}</a>
   ))}
 </div>

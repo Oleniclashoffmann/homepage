@@ -11,8 +11,7 @@ export const profile = {
   links: {
     GitHub: 'https://github.com/Oleniclashoffmann',
     LinkedIn: 'https://www.linkedin.com/in/ole-hoffmann/',
-    email: 'mailto:ole.hoffmann@tum.de',
-    scholar: '',
+    Email: 'mailto:ole.hoffmann@tum.de',
   } as Record<string, string>,
 };
 

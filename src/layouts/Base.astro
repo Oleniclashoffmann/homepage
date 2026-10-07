@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { profile } from '../data/profile';
+import BracketLinks from '../components/BracketLinks.astro';
 
 interface Props { title?: string; description?: string; }
 const { title, description = profile.tagline } = Astro.props;
@@ -18,8 +19,17 @@ const pageTitle = title ? `${title} - ${profile.name}` : `${profile.name} - Home
     <link rel="icon" href="/favicon-3splats.svg?v=2" type="image/svg+xml" />
     <link rel="icon" href="/favicon-3splats-32.png?v=2" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Work+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" />
   </head>
   <body>
     <main><slot /></main>
+    <footer class="site-footer">
+      <div class="inner">
+        <span class="meta">© {new Date().getFullYear()} {profile.name}</span>
+        <BracketLinks links={profile.links} />
+      </div>
+    </footer>
   </body>
 </html>

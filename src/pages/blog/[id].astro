@@ -11,7 +11,7 @@ const { Content } = await render(p);
 ---
 <Base title={p.data.title} description={p.data.description}>
   <div class="article">
-    <a class="back" href="/">← Back to Home</a>
+    <a class="back" href="/" aria-label="Back to home">«</a>
     <h1>{p.data.title}</h1>
     <p class="date">{p.data.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</p>
     <div class="callout">{p.data.description}</div>

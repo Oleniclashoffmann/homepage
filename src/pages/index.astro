@@ -8,26 +8,16 @@ import { profile, educationTimeline, industryTimeline, publications } from '../d
 const projects = (await getCollection('projects', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Posts grouped by month, newest first.
+// Posts, newest first.
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const months = new Map<string, typeof posts>();
-for (const p of posts) {
-  const key = p.data.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
-  months.set(key, [...(months.get(key) ?? []), p]);
-}
 ---
 <Base>
   <div class="intro">
-    <header class="who">
-      <h1>{profile.name}</h1>
-      <p>{profile.location}</p>
-    </header>
-    <div class="about">
-      <h2>About Me</h2>
-      <p>{profile.about}</p>
-      <BracketLinks links={profile.links} />
-    </div>
+    <h1>{profile.name}</h1>
+    <p class="location meta">{profile.location}</p>
+    <p>{profile.about}</p>
+    <BracketLinks links={profile.links} />
   </div>
 
   <section>
@@ -42,10 +32,10 @@ for (const p of posts) {
 
   {publications.length > 0 && (
     <section>
-      <h2>Papers / Preprints</h2>
+      <h2>Papers</h2>
       <div class="paper-list">
         {publications.map((p) => (
-          <a class:list={['row', { 'paper-with-image': p.image }]} href={p.href} target="_blank" rel="noopener noreferrer">
+          <a class="paper" href={p.href} target="_blank" rel="noopener noreferrer">
             {p.image && <img class="paper-teaser" src={p.image} alt={`Teaser figure: ${p.title}`} loading="lazy" />}
             <div>
               <h3>{p.title}</h3>
@@ -61,12 +51,12 @@ for (const p of posts) {
   {projects.length > 0 && (
     <section>
       <h2>Projects</h2>
-      <div class="box green">
+      <div class="entry-list">
         {projects.map((p) => (
-          <a class="row" href={`/projects/${p.id}/`}>
+          <a class="entry" href={`/projects/${p.id}/`}>
             <h3>{p.data.title}</h3>
-            <p class="meta">{p.data.tags.join(' · ')}</p>
             <p class="desc">{p.data.summary}</p>
+            <span class="meta">{p.data.tags.join(' · ')}</span>
           </a>
         ))}
       </div>
@@ -76,17 +66,13 @@ for (const p of posts) {
   {posts.length > 0 && (
     <section>
       <h2>Posts</h2>
-      <div class="box peach">
-        {[...months].map(([month, list]) => (
-          <>
-            <div class="month">{month}</div>
-            {list.map((p) => (
-              <a class="row" href={`/blog/${p.id}/`}>
-                <h3>{p.data.title}</h3>
-                <p class="desc">{p.data.description}</p>
-              </a>
-            ))}
-          </>
+      <div class="entry-list">
+        {posts.map((p) => (
+          <a class="entry" href={`/blog/${p.id}/`}>
+            <h3>{p.data.title}</h3>
+            <p class="desc">{p.data.description}</p>
+            <span class="meta">{p.data.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</span>
+          </a>
         ))}
       </div>
     </section>
