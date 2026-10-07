@@ -6,10 +6,6 @@ const { entries } = Astro.props;
 <ol class="timeline">
   {entries.map((e) => (
     <li class="tl-item">
-      {e.logo
-        ? <img class="tl-logo" src={e.logo} alt={e.badge?.label ?? ''} loading="lazy"
-            style={e.logoScale ? `transform: scale(${e.logoScale}); transform-origin: center top;` : undefined} />
-        : <span class="tl-logo tl-badge" style={`--c:${e.badge?.color ?? '#9ca3af'}`} aria-hidden="true">{e.badge?.label}</span>}
       <span class="tl-dot" aria-hidden="true"></span>
       <div class="tl-body">
         <div class="tl-head">
@@ -25,8 +21,7 @@ const { entries } = Astro.props;
           <ul class="tl-children">
             {e.children.map((c) => typeof c === 'string'
               ? <li set:html={c} />
-              : <li class:list={{ 'has-logo': c.logo }}>
-                  {c.logo && <img class="tl-child-logo" src={c.logo} alt="" loading="lazy" />}
+              : <li>
                   <div class="tl-child-main">
                     <div class="tl-head">
                       <span class="tl-text" set:html={c.html} />

@@ -14,6 +14,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 ---
 <Base>
   <div class="intro">
+    <img class="profile-image" src={profile.photo} alt={profile.name} width="112" height="112" />
     <h1>{profile.name}</h1>
     <p class="location meta">{profile.location}</p>
     <p>{profile.about}</p>
