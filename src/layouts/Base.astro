@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+import { profile } from '../data/profile';
+
+interface Props { title?: string; description?: string; }
+const { title, description = profile.tagline } = Astro.props;
+const pageTitle = title ? `${title} - ${profile.name}` : `${profile.name} - Home`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href="/favicon-3splats.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-3splats-32.png?v=2" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
+  </head>
+  <body>
+    <main><slot /></main>
+  </body>
+</html>
