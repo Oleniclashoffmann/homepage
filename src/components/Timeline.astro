@@ -16,11 +16,7 @@ const { entries } = Astro.props;
           <p class="tl-text" set:html={e.html} />
           {e.period && <span class="tl-period">{e.period}</span>}
         </div>
-        {e.bullets?.length && (
-          <ul class="tl-children">
-            <li class="tl-bullets-only"><ul class="tl-bullets">{e.bullets.map((b) => <li set:html={b} />)}</ul></li>
-          </ul>
-        )}
+        {e.bullets?.length && <ul class="tl-bullets">{e.bullets.map((b) => <li set:html={b} />)}</ul>}
         {e.children?.length && (
           <ul class="tl-children">
             {e.children.map((c) => typeof c === 'string'

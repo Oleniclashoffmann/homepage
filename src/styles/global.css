@@ -26,12 +26,13 @@ h1 { font-family: var(--serif); font-size: 2rem; font-weight: 600; letter-spacin
 h2 { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 1.4rem; }
 h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; line-height: 1.35; }
 section { margin: 4.5rem 0 0; }
+section.cv-first { margin-top: 2.5rem; }
 img { max-width: 100%; height: auto; }
 .meta { font-size: .8rem; font-weight: 300; letter-spacing: .04em; color: var(--muted); }
 
 /* ---------- intro ---------- */
 .profile-image { display: block; width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin: 0 0 1.1rem; }
-.intro .location { margin: .35rem 0 1.6rem; }
+.intro h1 { margin-bottom: 1.3rem; }
 .intro p { margin: 0 0 1rem; }
 .bracket-links { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; font-size: .93rem; }
 
@@ -85,13 +86,11 @@ img { max-width: 100%; height: auto; }
 .tl-children li::before { content: ''; position: absolute; left: -1.1rem; top: 1rem; width: .8rem; height: 1px;
   background: var(--line-soft); }
 .tl-children li.has-logo { display: flex; align-items: flex-start; gap: .55rem; }
-.tl-bullets { list-style: disc; margin: .25rem 0 0; padding-left: 1.1rem; font-size: .9rem; color: var(--muted); }
+.tl-bullets { list-style: none; margin: .4rem 0 0 .1rem; padding: .05rem 0 .05rem .8rem;
+  border-left: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
 .tl-bullets li { padding: .05rem 0; }
 .tl-bullets li::before { display: none; }
 .tl-bullets li::marker { color: var(--faint); }
-/* bullets directly under a top-level entry: line up with the sub-entry text (logo slot + gap) */
-.tl-children li.tl-bullets-only { padding-left: calc(22px + .55rem + .2rem); }
-.tl-children li.tl-bullets-only .tl-bullets { margin-top: 0; list-style: none; padding-left: 0; }
 .tl-child-logo { width: 22px; height: 22px; object-fit: contain; flex: none; margin-top: .1rem; border-radius: 3px; }
 @media (max-width: 560px) {
   .timeline { --logo: 30px; --gap: .8rem; }

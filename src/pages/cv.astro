@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Timeline from '../components/Timeline.astro';
+import { educationTimeline, experienceTimeline } from '../data/profile';
+---
+<Base title="CV">
+  <a class="back" href="/" aria-label="Back to home">«</a>
+  <h1>CV</h1>
+
+  <section class="cv-first">
+    <h2>Education</h2>
+    <Timeline entries={educationTimeline} />
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <Timeline entries={experienceTimeline} />
+  </section>
+</Base>
