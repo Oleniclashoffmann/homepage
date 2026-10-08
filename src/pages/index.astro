@@ -28,7 +28,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
             {p.image && <img class="paper-teaser" src={p.image} alt={`Teaser figure: ${p.title}`} loading="lazy" />}
             <div>
               <h3>{p.title}</h3>
-              <p class="meta">{p.authors}</p>
+              <p class="meta">{p.authors}{p.status && <span class="paper-status">({p.status})</span>}</p>
               {p.blurb && <p class="desc">{p.blurb}</p>}
             </div>
           </a>

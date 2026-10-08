@@ -61,7 +61,7 @@ export const experienceTimeline: TimelineEntry[] = [
     logo: '/img/logos/cvg.png',
     badge: { label: 'CVG', color: '#3b82d6' },
     html: 'Graduate researcher at the <a href="https://cvg.cit.tum.de/">Computer Vision Group</a>, TUM (Prof. Daniel Cremers).',
-    bullets: ['Developed VkVIO: <a href="https://arxiv.org/abs/2609.30459">arXiv:2609.30459</a>'],
+    bullets: ['Developed VkVIO: <a href="https://arxiv.org/abs/2609.30459">arXiv:2609.30459</a> (under review at ICRA 2027)'],
   },
   {
     period: 'Nov 2023 – Feb 2024',
@@ -90,6 +90,7 @@ export const publications = [
     title: 'VkVIO: Cross-platform GPU Acceleration for Visual-Inertial Odometry with Vulkan',
     authors: 'Ole Hoffmann, Mateo de Mayo, Daniel Cremers',
     venue: 'arXiv:2609.30459, 2026',
+    status: 'Under review at ICRA 2027', // shown in brackets after the authors; update once accepted
     blurb: 'Accelerating Basalt on GPUs with Vulkan for cross-vendor compatibility, so it runs fast on hardware from NVIDIA and Apple to low-cost single board computers like the Radxa.',
     href: 'https://arxiv.org/abs/2609.30459',
     image: '/img/papers/vkvio-teaser.svg', // teaser figure (Fig. 1), vector source from ICRA-Paper/figures/source/teaser.svg
